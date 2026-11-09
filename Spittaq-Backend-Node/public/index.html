@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMPIT At-Taqwa Surabaya — Study Buddy</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <aside>
+        <div class="brand">
+          <img class="cap" src="images/spittaq-logo.jpg" alt="Logo SMPIT At-Taqwa Surabaya">
+          <div>
+            <b>SMPIT At-Taqwa Surabaya</b>
+            <small>Study Buddy</small>
+          </div>
+        </div>
+        <nav class="nav">
+          <button class="active" data-page="dashboard" aria-label="⌂ Dashboard">
+            <span>⌂</span> Dashboard
+          </button>
+          <button data-page="tasks" aria-label="☑ My Tasks">
+            <span>☑</span> My Tasks
+          </button>
+          <button data-page="submissions" aria-label="⇧ Pengumpulan Tugas">
+            <span>⇧</span> Pengumpulan Tugas
+          </button>
+          <button data-page="calendar" aria-label="▦ Calendar">
+            <span>▦</span> Calendar
+          </button>
+          <hr>
+          <button data-page="settings" aria-label="⚙ Settings">
+            <span>⚙</span> Settings
+          </button>
+        </nav>
+        <div class="quote">
+          Small steps today, big dreams tomorrow!
+          <small>— SMPIT At-Taqwa Surabaya</small>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <label class="search">
+            <span>⌕</span>
+            <input id="searchInput" placeholder="Cari tugas, mata pelajaran, atau fitur...">
+          </label>
+          <div class="topright">
+            <button class="iconbtn" id="notificationButton" aria-label="Buka notifikasi" aria-expanded="false" aria-controls="notificationMenu">
+              ♧
+              <i class="badge" hidden>0</i>
+            </button>
+            <section class="header-popover notification-menu" id="notificationMenu" hidden>
+              <div class="popover-heading"><strong>Notifikasi</strong><button type="button" class="text-button" id="markNotificationsRead">Tandai dibaca</button></div>
+              <div id="notificationItems"><p>📘 <b>Matematika</b> — Latihan Bab 3, tenggat hari ini</p><p>🧪 <b>IPA</b> — Laporan praktikum, 1 hari lagi</p><p>🏃 <b>PJOK</b> — Tugas kebugaran, 5 hari lagi</p></div>
+              <button type="button" class="popover-link" id="openReminders">Buka pengingat →</button>
+            </section>
+            <button type="button" class="profile" id="profileButton" aria-expanded="false" aria-controls="profileMenu">
+              <div class="avatar">👦🏻</div>
+              <div>
+                <b id="profileName">Allan</b>
+                <small id="profileClass">Kelas 9A</small>
+              </div>
+              <span>⌄</span>
+            </button>
+            <section class="header-popover profile-menu" id="profileMenu" hidden>
+              <strong>Profil siswa</strong>
+              <form id="profileForm" class="profile-form"><label>Nama<input name="name" maxlength="60" required value="Allan"></label><label>Kelas<input name="className" maxlength="30" required value="Kelas 9A"></label><button type="submit" class="action-button">Simpan profil</button></form><button type="button" class="text-button" id="logoutButton">Keluar dari akun</button>
+            </section>
+          </div>
+        </header>
+        <div class="content">
+          <div class="grid">
+            <section id="page-dashboard" class="page-view dashboard-view is-active" data-page="dashboard" aria-label="Dashboard">
+              <section class="card welcome">
+                <div class="sun">☀️</div>
+                <div>
+                  <h1>Selamat Siang, <span id="welcomeName">Allan</span>! 👋</h1>
+                  <p>Semangat belajar hari ini! Jangan lupa selesaikan tugasmu ya!</p>
+                </div>
+                <div class="motivate">
+                  ↗ Disiplin hari ini,
+                  <br> hasil luar biasa nanti. ↗
+                </div>
+                <div style="font-size:27px;margin-left:2px">🌱</div>
+              </section>
+              <section class="dashboard-materials" aria-label="Pilih mata pelajaran">
+                <div class="dashboard-materials-heading">
+                  <button class="text-button" id="refreshMaterials" type="button">Muat ulang</button>
+                </div>
+                <div id="materialsSubjectPage">
+                  <div id="materialsSubjectGrid" class="materials-subject-grid" aria-live="polite"><p class="materials-empty">Memuat mata pelajaran...</p></div>
+                </div>
+                <div id="studentSubjectMaterialsPage" hidden>
+                  <button class="materials-back-button" id="backToMaterialsSubjects" type="button">← Semua mata pelajaran</button>
+                  <h3 class="selected-material-subject" id="selectedMaterialSubject"></h3>
+                  <div class="materials-semester-tabs" id="materialsSemesterTabs" role="tablist" aria-label="Pilih semester"></div>
+                  <div id="studentMaterials" class="study-material-list" aria-live="polite"></div>
+                </div>
+              </section>
+              
+              
+              
+            
+              
+            
+            </section>
+            
+                        <section id="page-calendar" class="page-view single-view" data-page="calendar" aria-label="Kalender Belajar">
+              <header class="page-heading">
+                <p class="eyebrow">SMPIT AT-TAQWA SURABAYA</p>
+                <h1>Kalender Belajar</h1>
+                <p class="page-description">Pilih tanggal untuk melihat agenda dan tenggat tugas.</p>
+              </header>
+              <section class="card panel calendar">
+                <div class="panelhead"><h2>▣　Kalender</h2></div>
+                <div class="month"><button id="prev" type="button" aria-label="Bulan sebelumnya">‹</button><span id="monthLabel"></span><button id="next" type="button" aria-label="Bulan berikutnya">›</button><button id="calendarToday" class="calendar-today" type="button">Hari ini</button></div>
+                <div class="days" id="calendar"></div>
+                <div class="legend"><span><i></i> Matematika</span><span><i style="background:#13b886"></i> IPA</span><span><i style="background:#a65bfa"></i> Inggris</span><span><i style="background:#ffad38"></i> Lainnya</span></div>
+              </section>
+            </section><section id="page-tasks" class="page-view single-view task-view" data-page="tasks" aria-label="Tugas Saya">
+              <header class="page-heading">
+                <p class="eyebrow">SMPIT AT-TAQWA SURABAYA</p>
+                <h1>Tugas Saya</h1>
+                <p class="page-description">Lihat, cari, dan kelola tugas belajar dalam satu halaman.</p>
+              </header>
+              <section class="card panel" id="task-panel">
+                <div class="panelhead">
+                  <h2>▣　Tugas Hari Ini</h2>
+                  <div class="task-actions">
+                    <select id="taskFilter" aria-label="Filter tugas">
+                      <option value="all">Semua</option>
+                      <option value="open">Belum selesai</option>
+                      <option value="done">Selesai</option>
+                    </select>
+                    <button class="action-button" id="addTaskButton" type="button">＋ Tambah</button>
+                  </div>
+                </div>
+                <p class="subline" id="tasksDateLabel"></p>
+                <div id="tasks">
+                  <div class="task">
+                    <input type="checkbox">
+                    <span class="subject math">Matematika</span>
+                    <span class="detail">Latihan Bab 3 (Persamaan Kuadrat)</span>
+                    <time>08:00 - 09:30</time>
+                    <span class="level high">High</span>
+                    <button class="more">•••</button>
+                  </div>
+                  <div class="task">
+                    <input type="checkbox">
+                    <span class="subject ipa">IPA</span>
+                    <span class="detail">Laporan Praktikum Sistem Pernapasan</span>
+                    <time>10:00 - 12:00</time>
+                    <span class="level medium">Medium</span>
+                    <button class="more">•••</button>
+                  </div>
+                  <div class="task">
+                    <input type="checkbox">
+                    <span class="subject eng">Bahasa Inggris</span>
+                    <span class="detail">Speaking Project (My Daily Routine)</span>
+                    <time>13:00 - 15:00</time>
+                    <span class="level high">High</span>
+                    <button class="more">•••</button>
+                  </div>
+                  <div class="task">
+                    <input type="checkbox">
+                    <span class="subject ips">IPS</span>
+                    <span class="detail">Rangkuman Bab 2 (Perdagangan Indonesia)</span>
+                    <time>15:30 - 17:00</time>
+                    <span class="level low">Low</span>
+                    <button class="more">•••</button>
+                  </div>
+                  <div class="task">
+                    <input type="checkbox">
+                    <span class="subject pjok">PJOK</span>
+                    <span class="detail">Tugas Kebugaran (Lari 2 KM)</span>
+                    <time>19:00 - 20:00</time>
+                    <span class="level medium">Medium</span>
+                    <button class="more">•••</button>
+                  </div>
+                </div>
+              </section>
+            </section>
+            <section id="page-submissions" class="page-view single-view" data-page="submissions" aria-label="Pengumpulan Tugas">
+              <header class="page-heading">
+                <p class="eyebrow">SMPIT AT-TAQWA SURABAYA</p>
+                <h1>Pengumpulan Tugas</h1>
+                <p class="page-description">Kirim berkas tugas dan pantau riwayat pengumpulanmu.</p>
+              </header>
+              <section class="card panel submission-panel">
+                <div class="panelhead"><h2>⇧　Kirim Tugas</h2><a href="/guru/">Portal Guru ↗</a></div>
+                <form id="submissionForm" class="submission-form">
+                  <label>Nama siswa<input name="studentName" maxlength="60" required placeholder="Nama siswa"></label>
+                  <label>Nama tugas<input name="title" maxlength="120" required placeholder="Contoh: Laporan praktikum sistem pernapasan"></label>
+                  <div class="submission-fields">
+                    <label>Mata pelajaran<select name="subject" required><option value="">Pilih mata pelajaran</option><option>Pendidikan Agama Islam</option><option>Bahasa Inggris</option><option>PPKn</option><option>PJOK</option><option>Bahasa Indonesia</option><option>Informatika</option><option>Matematika</option><option>Seni Budaya</option><option>IPA</option><option>Bahasa Jawa</option><option>IPS</option></select></label>
+                    <label>Guru tujuan<select name="teacherUserId" required><option value="">Memuat daftar guru...</option></select></label>
+                    <label>Berkas tugas<input name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png" required><small>PDF, Word, PowerPoint, atau gambar (maks. 50 MB)</small></label>
+                  </div>
+                  <label>Catatan (opsional)<textarea name="note" rows="3" maxlength="500" placeholder="Tambahkan keterangan untuk guru..."></textarea></label>
+                  <button class="action-button submit-assignment" type="submit">Kirim Pengumpulan</button>
+                  <p class="submission-message" id="submissionMessage" role="status"></p>
+                </form>
+              </section>
+              <section class="card panel submission-panel">
+                <div class="panelhead"><h2>▤　Riwayat Pengumpulan</h2></div>
+                <div class="submission-list" id="submissionList"><p class="empty-state">Memuat riwayat pengumpulan...</p></div>
+              </section>
+            </section>
+            
+            
+            
+            
+            
+            
+            
+            
+            <section id="page-settings" class="page-view single-view" data-page="settings" aria-label="Pengaturan">
+              <header class="page-heading">
+                <p class="eyebrow">SMPIT AT-TAQWA SURABAYA</p>
+                <h1>Pengaturan</h1>
+                <p class="page-description">Atur tampilan dashboard sesuai kenyamananmu.</p>
+              </header>
+              <section class="card panel settings-panel">
+                <div class="panelhead">
+                  <h2>Preferensi tampilan</h2>
+                </div>
+                <label class="setting-row">
+                  <span class="setting-copy">
+                    <strong>Mode gelap</strong>
+                    <small>Gunakan tampilan gelap saat belajar.</small>
+                  </span>
+                  <input type="checkbox" id="darkModeToggle">
+                </label>
+                <label class="setting-row">
+                  <span class="setting-copy">
+                    <strong>Pengingat belajar</strong>
+                    <small>Tampilkan pengingat pada dashboard.</small>
+                  </span>
+                  <input type="checkbox" id="reminderToggle" checked="">
+                </label>
+              </section>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+    <dialog id="taskDialog" class="task-dialog">
+      <form id="taskForm">
+        <div class="dialog-head">
+          <h2>Tambah tugas</h2>
+          <button type="button" class="close-dialog" id="closeTaskDialog" aria-label="Tutup">×</button>
+        </div>
+        <label>
+          Nama tugas
+          <input name="title" maxlength="120" required="" placeholder="Contoh: Latihan soal bab 4">
+        </label>
+        <div class="form-row">
+          <label>
+            Mata pelajaran
+            <select name="subject">
+              <option>Pendidikan Agama Islam</option><option>Bahasa Inggris</option><option>PPKn</option><option>PJOK</option><option>Bahasa Indonesia</option><option>Informatika</option><option>Matematika</option><option>Seni Budaya</option><option>IPA</option><option>Bahasa Jawa</option><option>IPS</option>
+            </select>
+          </label>
+          <label>
+            Prioritas
+            <select name="priority">
+              <option>Medium</option>
+              <option>High</option>
+              <option>Low</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            Tanggal
+            <input name="dueDate" type="date" required="">
+          </label>
+          <label>
+            Waktu
+            <input name="time" value="09:00 - 10:00">
+          </label>
+        </div>
+        <button class="action-button submit-task" type="submit">Simpan tugas</button>
+      </form>
+    </dialog>
+    <div class="toast" id="toast"></div>
+    <script src="js/fallback-data.js"></script>
+    <script src="js/daily-counters.js"></script>
+    <script src="js/app.js" defer="defer"></script>
+    <script src="js/account.js" defer="defer"></script>
+    <script src="js/header-actions.js" defer="defer"></script>
+    <script src="js/submissions.js" defer="defer"></script>
+    <script src="js/material-preview.js" defer="defer"></script>
+    <script src="js/materials.js" defer="defer"></script>
+  </body>
+</html>

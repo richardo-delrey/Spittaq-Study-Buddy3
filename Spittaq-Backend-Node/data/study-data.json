@@ -1,0 +1,18 @@
+{
+  "tasks": [],
+  "subjects": [
+    {"icon":"🕌","name":"Pendidikan Agama Islam","progress":0,"color":"#19b987"},
+    {"icon":"🇬🇧","name":"Bahasa Inggris","progress":0,"color":"#ff5b80"},
+    {"icon":"🚩","name":"PPKn","progress":0,"color":"#ffbb42"},
+    {"icon":"⚽","name":"PJOK","progress":0,"color":"#36c1c5"},
+    {"icon":"📘","name":"Bahasa Indonesia","progress":0,"color":"#4ba7ff"},
+    {"icon":"💻","name":"Informatika","progress":0,"color":"#7187ff"},
+    {"icon":"📐","name":"Matematika","progress":0,"color":"#b078f5"},
+    {"icon":"🎨","name":"Seni Budaya","progress":0,"color":"#bd7deb"},
+    {"icon":"⚗️","name":"IPA","progress":0,"color":"#48c6a0"},
+    {"icon":"🗿","name":"Bahasa Jawa","progress":0,"color":"#d7986b"},
+    {"icon":"🌍","name":"IPS","progress":0,"color":"#ffb347"}
+  ],
+  "submissions": [],
+  "materials": []
+}

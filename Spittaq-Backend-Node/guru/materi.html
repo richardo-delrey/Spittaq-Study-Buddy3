@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materi Belajar · SMPIT At-Taqwa Surabaya</title>
+  <link rel="stylesheet" href="/guru/css/portal.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/guru/portal.html"><img class="brand-logo" src="/guru/images/at-taqwa-logo.jpg" alt="Logo SMPIT At-Taqwa Surabaya"><span><strong>SMPIT At-Taqwa Surabaya</strong><small>Portal Guru</small></span></a>
+    <div class="topbar-actions"><a class="back-link" href="/guru/portal.html">← Pengumpulan tugas</a><span id="teacherName"></span><button id="logoutButton" class="refresh-button" type="button">Keluar</button></div>
+  </header>
+  <main class="shell">
+    <section class="welcome"><div><p class="eyebrow">RUANG KERJA GURU</p><h1>Materi Belajar</h1><p>Bagikan materi ke siswa berdasarkan kelas tujuan.</p></div></section>
+    <section class="card material-upload-card">
+      <div class="toolbar"><div><h2>Unggah materi baru</h2><p>Siswa di kelas tujuan dapat melihat dan mengunduh berkas ini.</p></div></div>
+      <form id="materialForm" class="material-form">
+        <div class="material-fields">
+          <label>Judul materi<input name="title" maxlength="120" required placeholder="Contoh: Persamaan Kuadrat"></label>
+          <label>Mata pelajaran<select name="subject" required><option value="">Pilih mata pelajaran</option><option>Pendidikan Agama Islam</option><option>PPKn</option><option>Bahasa Indonesia</option><option>Informatika</option><option>Seni Budaya</option><option>Bahasa Jawa</option><option>Matematika</option><option>IPA</option><option>Bahasa Inggris</option><option>IPS</option><option>PJOK</option></select></label>
+          <label>Kelas tujuan<select name="grade" required><option value="">Pilih kelas</option><option value="7">Kelas 7</option><option value="8">Kelas 8</option><option value="9">Kelas 9</option></select></label>
+          <label>Semester<select name="semester" required><option value="">Pilih semester</option><option value="1">Semester 1</option><option value="2">Semester 2</option></select></label>
+          <label class="material-note-field">Catatan materi (opsional)<textarea name="note" maxlength="500" rows="3" placeholder="Keterangan singkat untuk siswa"></textarea></label>
+          <label class="material-file-field">Berkas materi<input name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png" required><small>PDF, Word, PowerPoint, atau gambar · maksimal 50 MB</small></label>
+        </div>
+        <div class="material-form-actions"><p id="materialMessage" class="form-message" aria-live="polite"></p><button class="action-button" type="submit">Unggah materi</button></div>
+      </form>
+    </section>
+    <section class="card materials-management-card">
+      <div class="toolbar"><div><h2>Materi yang tersedia</h2><p>Daftar materi dari semua guru dan kelas.</p></div><button id="reloadMaterials" class="refresh-button" type="button">↻　Muat ulang</button></div>
+      <div id="teacherMaterials" class="teacher-material-list" aria-live="polite"><p class="empty">Memuat materi...</p></div>
+    </section>
+  </main>
+  <script src="/js/material-preview.js" defer></script>
+  <script src="/guru/js/materi.js" defer></script>
+</body>
+</html>
